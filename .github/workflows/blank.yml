@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
@@ -35,7 +35,8 @@ jobs:
     - name: Build Firmware
       run: |
         make download -j8
-        make V=s -j1
+        echo -e "$(nproc) thread compile"
+        make -j$(nproc) || make -j1 || make -j1 V=s
     - name: Prepare artifact
       run: |
           mkdir -p ./artifact/firmware
