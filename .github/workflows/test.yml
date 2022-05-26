@@ -27,7 +27,7 @@ jobs:
           echo $(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c)
           echo "::set-output name=text::$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c)"
       - name: Disable workflow commands
-        if: steps.cpuinfo.outputs.text != '2 Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz' && !cancelled()
+        if: steps.cpuinfo.outputs.text != '2 Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz ' && !cancelled()
         run: |
           echo '::warning:: This is a warning message, to demonstrate that commands are being processed.'
           stopMarker=$(uuidgen)
@@ -37,7 +37,7 @@ jobs:
           echo '::warning:: This is a warning again, because stop-commands has been turned off.'
       # Runs a set of commands using the runners shell
       - name: 不是8370C
-        if: steps.cpuinfo.outputs.text == '2 Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz' && !cancelled()
+        if: steps.cpuinfo.outputs.text == '2 Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz ' && !cancelled()
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
