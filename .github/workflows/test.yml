@@ -28,7 +28,7 @@ jobs:
           echo "::set-output name=text::$(cat /proc/cpuinfo | grep name | cut -f2 -d:)"
       # Runs a set of commands using the runners shell
       - name: 8370C执行区
-        if: steps.cpuinfo.outputs.text == ' Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz\r' && !cancelled()
+        if: steps.cpuinfo.outputs.text == 'Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz' && !cancelled()
         
         run: |
           echo Add other actions to build, Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
