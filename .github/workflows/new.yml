@@ -24,10 +24,9 @@ jobs:
       - name: CPU及核心数
         run: |
           echo "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) "
-          cat /proc/cpuinfo | grep name | cut -f2 -d: >>cpu.info
-          cat cpu.info | grep  8370C
+          cat /proc/cpuinfo | grep name | cut -f2 -d: | grep  8370C
       # Runs a set of commands using the runners shell
       - name: 8370C执行区
         run: |
-          #echo Add other actions to build, Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+          #Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
           echo test, and deploy your project.
