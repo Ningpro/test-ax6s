@@ -24,7 +24,8 @@ jobs:
       - name: Run a one-line script
         id: cpuinfo
         run: |
-          #echo $(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) >> $CPU_ENV
+          echo $(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c)
+          echo $(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) >> $CPU_ENV
           echo "::set-output name=text::$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c)"
 
       # Runs a set of commands using the runners shell
