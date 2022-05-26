@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
           echo cat /proc/cpuinfo | grep name | cut -f2 -d: >>cpu.info
-          
+          echo grep 8272CL cpu.info
           echo "::set-output name=text::$(grep 8272CL cpu.info)"
       # Runs a set of commands using the runners shell
       - name: 8370C执行区
