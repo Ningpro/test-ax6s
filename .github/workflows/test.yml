@@ -33,5 +33,5 @@ jobs:
         if: steps.cpu.outputs.text == ' Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz' && !cancelled()
         
         run: |
-          echo Add other actions to build, Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+          #echo Add other actions to build, Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
           echo test, and deploy your project.
