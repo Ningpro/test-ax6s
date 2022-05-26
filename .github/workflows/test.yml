@@ -25,12 +25,11 @@ jobs:
         id: cpuinfo
         run: |
           echo $(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c)
-          echo $(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) >> $CPU_ENV
           echo "::set-output name=text::$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c)"
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-        if: steps.cpuinfo.outputs.text == '      2  Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz' && !cancelled()
+        if: steps.cpuinfo.outputs.text == '2 Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz' && !cancelled()
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
