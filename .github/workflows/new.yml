@@ -21,6 +21,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       # Runs a single command using the runners shell
+      - name: 自定义脚本
+        run: |
+         chmod +x diy.sh
+         diy.sh
       - name: CPU及核心数
         run: |
           echo "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) "
