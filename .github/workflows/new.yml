@@ -23,8 +23,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: 自定义脚本
         run: |
+         echo pwd
          chmod +x diy.sh
-         diy.sh
+         ./diy.sh
+         cd test-ax6s
       - name: CPU及核心数
         run: |
           echo "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) "
