@@ -25,8 +25,7 @@ jobs:
         id: cpuinfo
         run: |
           echo -e "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
-          echo $(cat /proc/cpuinfo | grep name | cut -f2 -d:)
-          echo "::set-output name=text::$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c)"
+          echo "::set-output name=text::$(cat /proc/cpuinfo | grep name | cut -f2 -d:)"
       - name: Disable workflow commands
         if: steps.cpuinfo.outputs.text != ' Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz ' && !cancelled()
         run: |
